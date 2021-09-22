@@ -26,7 +26,7 @@ const handleUserInput = (input) => {
   if (input === 'd') {
     connection.write("Move: right");
   }
-  connection.write(`Say: ♥♥♥`);
+  connection.write(`Say: ♥`);
 };
 
 module.exports = setupInput;
