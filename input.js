@@ -1,4 +1,7 @@
-const setupInput = () => { // setup interface to handle user input from stdin
+let connection; // Stores the active TCP connection object.
+
+const setupInput = (conn) => {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -7,9 +10,21 @@ const setupInput = () => { // setup interface to handle user input from stdin
   return stdin;
 };
 
-const handleUserInput = (key) => { 
-  if (key === '\u0003') {
+const handleUserInput = (input) => { 
+  if (input === '\u0003') {
     process.exit();
+  }
+  if (input === 'w') {
+    connection.write("Move: up")
+  }
+  if (input === 'a') {
+    connection.write("Move: left")
+  }
+  if (input === 's') {
+    connection.write("Move: down")
+  }
+  if (input === 'd') {
+    connection.write("Move: right")
   }
 };
 
