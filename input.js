@@ -10,22 +10,23 @@ const setupInput = (conn) => {
   return stdin;
 };
 
-const handleUserInput = (input) => { 
+const handleUserInput = (input) => {
   if (input === '\u0003') {
     process.exit();
   }
   if (input === 'w') {
-    connection.write("Move: up")
+    connection.write("Move: up");
   }
   if (input === 'a') {
-    connection.write("Move: left")
+    connection.write("Move: left");
   }
   if (input === 's') {
-    connection.write("Move: down")
+    connection.write("Move: down");
   }
   if (input === 'd') {
-    connection.write("Move: right")
+    connection.write("Move: right");
   }
+  connection.write(`Say: ♥♥♥`);
 };
 
 module.exports = setupInput;
